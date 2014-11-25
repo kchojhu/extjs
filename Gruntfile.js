@@ -1,9 +1,19 @@
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
-	var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+	require('load-grunt-tasks')(grunt);
 	grunt.loadNpmTasks('grunt-connect-proxy');
+	grunt.loadNpmTasks("grunt-shell");
+	grunt.loadNpmTasks("grunt-path-check");
+	require('load-grunt-tasks')(grunt);
+	var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 	grunt.initConfig({
+		shell : {
+			appRefresh : {
+				command : [ 'cd src/main/webapp/app', 'sencha app build development' ]
+						.join('&&')
+			}
+		},
 		connect : {
 			devserver : {
 				options : {
@@ -38,21 +48,33 @@ module.exports = function(grunt) {
 			devserver : {
 				path : "http://localhost:5000/app"
 			},
-            siesta: {
-                path: 'http://localhost:5000/app/siesta'
-            }
-		},
-		watch : {
-			options : {
-				livereload : true
-			},
-			scripts : {
-				files : [ 'src/main/webapp/app/app/**/*.js', 'src/main/webapp/app/siesta/**/*.js' ]
+			siesta : {
+				path : 'http://localhost:5000/app/siesta'
 			}
 		},
-		
+		concurrent : {
+			options : {
+				logConcurrentOutput : true
+			},
+			watch : [ 'watch:scripts', 'watch:appJson' ]
+		},
+		watch : {
+			appJson : {
+				files : 'src/main/webapp/app/app.json',
+				tasks : [ 'shell' ]
+			},
+			scripts : {
+				options : {
+					livereload : true
+				},
+				files : [ 'src/main/webapp/app/app/**/*.js',
+						'src/main/webapp/app/siesta/**/*.js', 'src/main/webapp/build/development/SlickDeals/resources/*-all.css' ]
+			}
+		},
+
 	});
 
-	grunt.registerTask('server', [ 'configureProxies:devserver',
-			'connect:devserver', 'open:siesta', 'open:devserver', 'watch' ]);
+	grunt.registerTask('server',
+			[ 'configureProxies:devserver', 'connect:devserver', 'open:siesta',
+					'open:devserver', 'concurrent:watch' ]);
 };

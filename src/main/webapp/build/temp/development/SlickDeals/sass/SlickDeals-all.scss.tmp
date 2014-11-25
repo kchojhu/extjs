@@ -1,4 +1,4 @@
-$image-search-path: '/home/kwcho/workspace3/slickdeals/src/main/webapp/build/development/SlickDeals/resources';
+$image-search-path: '/home/kc/git/extjs/src/main/webapp/build/development/SlickDeals/resources';
 $theme-name:  'ext-theme-crisp' !default;
 $include-ext-abstractmanager: true;
 $include-ext-action: true;
