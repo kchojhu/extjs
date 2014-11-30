@@ -7,8 +7,13 @@ Ext.define('SlickDeals.view.main.MainModel', {
     alias: 'viewmodel.main',
 
     data: {
-        name: 'SlickDeals Sweettttt!!!!!2'
+        name: 'SlickDeals Sweettttt!!!!!19',
+    },
+    
+    blah: function() {
+//    	var test = "1";
+//    	if (test == "1") {
+//    		
+//    	}
     }
-
-    //TODO - add data, formulas and/or methods to support your view
 });

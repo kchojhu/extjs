@@ -18,9 +18,9 @@ public class PostController {
 		
 		List<Post> posts = Lists.newArrayList();
 		
-		for (int i = 1; i < 10; i++) {
+		for (int i = 0; i < 20; i++) {
 			Post post = new Post();
-			post.setMessage("message 1");
+			post.setMessage("message " + i);
 			posts.add(post);
 		}
 		

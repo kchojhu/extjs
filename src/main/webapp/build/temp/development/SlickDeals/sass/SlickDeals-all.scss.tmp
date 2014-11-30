@@ -718,6 +718,8 @@ $include-extthemeneptune-resizer-splitter: true;
 $include-extthemeneptune-toolbar-paging: true;
 $include-extthemeneptune-toolbar-toolbar: true;
 $include-slickdeals-application: true;
+$include-slickdeals-model-base: true;
+$include-slickdeals-model-post: true;
 $include-slickdeals-view-main-main: true;
 $include-slickdeals-view-main-maincontroller: true;
 $include-slickdeals-view-main-mainmodel: true;
@@ -729,6 +731,8 @@ $include-slickdeals-view-main-mainmodel: true;
 @import '../../../../../ext/packages/ext-theme-neptune/sass/etc/all';
 /* including package ext-theme-crisp */
 @import '../../../../../ext/packages/ext-theme-crisp/sass/etc/all';
+/* including package SlickDeals */
+@import '../../../../../app/sass/var/Application';
 /* including package ext-theme-crisp */
 @import '../../../../../ext/packages/ext-theme-crisp/sass/var/Component';
 @import '../../../../../ext/packages/ext-theme-crisp/sass/var/panel/Tool';

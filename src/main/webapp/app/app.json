@@ -17,7 +17,7 @@
      */
     "classpath": "${app.dir}/app",
 
-    "overrides": "${app.dir}/overrides",
+    "overrides": "${app.dir}/overrides/overrides.js",
 
     /**
      * The Sencha Framework for this application: "ext" or "touch".
@@ -114,6 +114,9 @@
             "path": "${ext.dir}/build/ext-all-rtl-debug.js"
         },
         {
+            "path": "../bower_components/lodash/dist/lodash.js"
+        },
+        {
             "path": "app.js",
             "bundle": true
         }
@@ -179,6 +182,7 @@
      * settings.
      */
     "production": {
+    
     },
     
     "testing": {
